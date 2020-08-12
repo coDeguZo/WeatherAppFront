@@ -1,26 +1,42 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import NavBar from './containers/NavBar'
+import HomePage from './containers/HomePage'
+import Login from './components/Login'
+import { Route } from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component{
+  state = {
+    user: null
+  }
+
+  componentDidMount(){
+    if(localStorage.getItem("token")){
+      fetch("http://localhost:3000/login", {
+        headers: { "Authenticate": localStorage.token }
+      })
+      .then(resp => resp.json())
+      .then(user => {
+        this.handleLogin(user)
+      })
+      } else {
+        console.log("No Token Found")
+      }
+  }
+
+  loggedInUser = (user) => {
+    
+  }
+
+  render(){
+    return(
+      <div>
+        <NavBar />
+        <Route exact path="/home" render={() => <HomePage />}/>
+        <Route exat path="/login" render={() => <Login />}/>
+      </div>
+    )
+  }
 }
 
-export default App;
+export default App
