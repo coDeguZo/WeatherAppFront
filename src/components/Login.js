@@ -43,8 +43,7 @@ class Login extends React.Component {
               text: "Signed In"
           })
           localStorage.setItem("token", data.token)
-          // Need to create a function to push the data up to the App.js
-          // this.props.loginUser(data.user)
+          this.props.login(data.user)
     }})}
 
   render(){

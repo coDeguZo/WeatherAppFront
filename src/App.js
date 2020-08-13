@@ -3,6 +3,7 @@ import './App.css';
 import NavBar from './containers/NavBar'
 import HomePage from './containers/HomePage'
 import Login from './components/Login'
+import Profile from './containers/Profile'
 import { Route } from "react-router-dom";
 
 class App extends React.Component{
@@ -23,17 +24,24 @@ class App extends React.Component{
         console.log("No Token Found")
       }
   }
+ 
+  handleLogin = (user) => {
+    this.setState({ user: user })
+  }
 
-  loggedInUser = (user) => {
-    
+  handleLogout = () => {
+    localStorage.clear()
+    this.setState({user: null})
   }
 
   render(){
+    const { weather } = this.state
     return(
-      <div>
-        <NavBar />
+      <div className="App">
+        <NavBar user={this.state.user} logout={this.handleLogout}/>
         <Route exact path="/home" render={() => <HomePage />}/>
-        <Route exat path="/login" render={() => <Login />}/>
+        <Route exat path="/login" render={() => <Login login={this.handleLogin}/>}/>
+        <Route exact path="/profile" render={() => <Profile />} />
       </div>
     )
   }
