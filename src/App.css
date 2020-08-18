@@ -13,12 +13,6 @@
   background: rgba(0,0,0,.5);
 }
 
-/* .weather-div{
-  vertical-align: middle;
-  margin-bottom: 0.75em;
-} */
-
-
 .inner-weather-left{
   vertical-align: left;
   width: 150px;
@@ -26,5 +20,15 @@
 
 .inner-weather-right{
   font-size: 44px;
+  color: white;
   padding-left: 25px;
 } 
+
+.weather-specifics{
+  text-align: center;
+}
+
+/* .input-box-home-page{
+  position: relative;
+  padding: 10px 0;
+} */

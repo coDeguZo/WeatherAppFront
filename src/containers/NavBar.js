@@ -9,16 +9,16 @@ class NavBar extends Component{
     return(
       <div>
            <Navbar bg="light" expand="lg">
-           <Link to="/home" style={{fontSize: "20px"}}>Weather Application</Link>
+           <Link to="/" style={{fontSize: "20px"}}>Weather Application</Link>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
               {/* Place code that will go on left side of navbar */}
             </Nav>
-            <Link style={{paddingRight: '50px', fontSize: "20px"}} to="/home">Home</Link>
+            <Link style={{paddingRight: '50px', fontSize: "20px"}} to="/">Home</Link>
             {this.props.user ? null : <Link style={{paddingRight: '30px', fontSize: "20px"}} to="/login">Login</Link>}
             {this.props.user ? <Link style={{paddingRight: '30px', fontSize: "20px"}} to="/profile">Profile</Link> : null}
-            {this.props.user ? <Link style={{paddingRight: '30px', fontSize: "20px"}} to="/home" onClick={this.props.logout}>Logout</Link> : null}
+            {this.props.user ? <Link style={{paddingRight: '30px', fontSize: "20px"}} to="/" onClick={this.props.logout}>Logout</Link> : null}
             <Form inline>
               <FormControl type="text" placeholder="Search" className="mr-sm-2" />
               <Button variant="outline-success">Search</Button>

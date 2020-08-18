@@ -4,7 +4,7 @@ import NavBar from './containers/NavBar'
 import HomePage from './containers/HomePage'
 import Login from './components/Login'
 import Profile from './containers/Profile'
-import { Route } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
 
 class App extends React.Component{
   state = {
@@ -35,12 +35,15 @@ class App extends React.Component{
   }
 
   render(){
-    const { weather } = this.state
     return(
       <div className="App">
         <NavBar user={this.state.user} logout={this.handleLogout}/>
-        <Route exact path="/home" render={() => <HomePage />}/>
+        <Route exact path="/" render={() => <HomePage user={this.state.user}/>}/>
+        { this.state.user ? 
+        <Redirect to= "/"/>
+        :
         <Route exat path="/login" render={() => <Login login={this.handleLogin}/>}/>
+        }
         <Route exact path="/profile" render={() => <Profile />} />
       </div>
     )
