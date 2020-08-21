@@ -108,3 +108,5 @@ class HomePage extends React.Component{
 
 export default HomePage
 // http://openweathermap.org/img/wn/03d@2x.png
+
+// Haha
