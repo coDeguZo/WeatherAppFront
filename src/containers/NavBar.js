@@ -17,12 +17,12 @@ class NavBar extends Component{
             </Nav>
             <Link style={{paddingRight: '50px', fontSize: "20px"}} to="/">Home</Link>
             {this.props.user ? null : <Link style={{paddingRight: '30px', fontSize: "20px"}} to="/login">Login</Link>}
-            {this.props.user ? <Link style={{paddingRight: '30px', fontSize: "20px"}} to="/profile">Profile</Link> : null}
+            {/* {this.props.user ? <Link style={{paddingRight: '30px', fontSize: "20px"}} to="/profile">Profile</Link> : null} */}
             {this.props.user ? <Link style={{paddingRight: '30px', fontSize: "20px"}} to="/" onClick={this.props.logout}>Logout</Link> : null}
-            <Form inline>
+            {/* <Form inline>
               <FormControl type="text" placeholder="Search" className="mr-sm-2" />
               <Button variant="outline-success">Search</Button>
-            </Form>
+            </Form> */}
           </Navbar.Collapse>
         </Navbar>
       </div>
